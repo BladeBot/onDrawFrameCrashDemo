@@ -20,7 +20,7 @@ import org.opencv.imgproc.Imgproc;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ColorProcessor implements VisionProcessor {
+public class ColorProcessor implements VisionProcessor {
 
     // Does the vision processor see anything?
     private boolean hasResult = false;
@@ -28,7 +28,7 @@ public abstract class ColorProcessor implements VisionProcessor {
     // Intermediate images saved by the pipeline
     // They are instance variable up here to avoid creating and throwing away
     // new pictures every time
-    public Mat blurred = new Mat();
+    /*public Mat blurred = new Mat();
     public Mat hsv = new Mat();
     public Mat thresholded = new Mat();
 
@@ -51,7 +51,7 @@ public abstract class ColorProcessor implements VisionProcessor {
     //public Mat overlay;
 
     public int w;
-    public int h;
+    public int h;*/
 
     public boolean crashNow = false;
 
@@ -64,8 +64,8 @@ public abstract class ColorProcessor implements VisionProcessor {
      */
     @Override
     public void init(int width, int height, CameraCalibration calibration) {
-        w = width;
-        h = height;
+        //w = width;
+        //h = height;
 
         //overlay = new Mat(h, w, CvType.CV_8UC4);
         //Bitmap camOut = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
@@ -274,19 +274,19 @@ public abstract class ColorProcessor implements VisionProcessor {
      * Does this color processor see anything?
      * @return True if this processor sees something, false otherwise
      */
-    public boolean hasResult()
+    /*public boolean hasResult()
     {
         return hasResult;
-    }
+    }*/
 
     /**
      * Get the bounding box surrounding the biggest thing we see.
      * @return a bounding box around the biggest object seen
      */
-    public Rect getBoundingBox()
+    /*public Rect getBoundingBox()
     {
         return boundingBox;
-    }
+    }*/
 
 
     /**
@@ -294,10 +294,10 @@ public abstract class ColorProcessor implements VisionProcessor {
      * This is the center of the bounding box, not the center of mass.
      * @return A point representing the center of the object.
      */
-    public Point getCenter()
+    /*public Point getCenter()
     {
         return center;
-    }
+    }*/
 
 
 
@@ -307,20 +307,20 @@ public abstract class ColorProcessor implements VisionProcessor {
      * our target color.
      * @return a Scalar containing the maximum desired Hue, Saturation, and Value.
      */
-    public abstract Scalar maxColor();
+    //public abstract Scalar maxColor();
 
     /**
      * Get a scalar containing the minimum Hue, Saturation, and Value of pixels that match
      * our target color.
      * @return a Scalar containing the minimum desired Hue, Saturation, and Value.
      */
-    public abstract Scalar minColor();
+    //public abstract Scalar minColor();
 
     /**
      * Get the minimum area that the object we are looking for should take up on the camera.
      * @return The least area our target should take up. Anything smaller than this will be ignored.
      */
-    public abstract double minArea();
+    //public abstract double minArea();
 
 
 }
