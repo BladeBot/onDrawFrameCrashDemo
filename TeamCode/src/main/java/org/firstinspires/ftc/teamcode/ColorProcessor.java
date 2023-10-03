@@ -80,7 +80,7 @@ public abstract class ColorProcessor implements VisionProcessor {
     @Override
     public Object processFrame(Mat frame, long captureTimeNanos) {
 
-        // TODO Fill in the image processing steps from the Imgproc libarary
+        /*
 
         // Blur the image slightly
         // Params: (frame, blurred, new Size(11,11), 1.0)
@@ -99,17 +99,6 @@ public abstract class ColorProcessor implements VisionProcessor {
         // Params: (thresholded, contours, new Mat(), Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE)
         Imgproc.findContours(thresholded, contours, new Mat(), Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
 
-        /*
-        TODO
-        Now we need to pick the biggest "contour" on the image.
-        A "contour" is just a fancy word for a blob of color, or the outlines around it.
-        Using a loop, go through the `contours` variable and set `biggestIndex` to the
-        index of the largest one.
-        Also, make sure to ignore contours less than `minArea()` in size!
-        HINT 1: You will need a loop!
-        HINT 2: contours.get(7) gets contour index 7
-        HINT 3: Imgproc.contourArea(c) calculates the area of contour c
-         */
         // Pick the biggest contour
         int biggestIndex = -1;
         double biggestArea = 0.0;
@@ -140,7 +129,9 @@ public abstract class ColorProcessor implements VisionProcessor {
 
         // By converting to an array, this creates a new object that won't
         // cause multithreading insanity when accessed by onDrawFrame
-        return contours.toArray();
+        return contours.toArray(); */
+        return null;
+
     }
 
     /**
@@ -161,6 +152,7 @@ public abstract class ColorProcessor implements VisionProcessor {
         }
 
 
+        /*
         // Set up paint
         Paint p = new Paint();
         p.setColor(Color.BLUE);
@@ -252,6 +244,7 @@ public abstract class ColorProcessor implements VisionProcessor {
                 (int) (onscreenWidth * 0.55),
                 (int) (onscreenHeight)), p);
 
+         */
         // Draw contours overlay
         /*
         overlay.setTo(new Scalar(0,0,0,255));
